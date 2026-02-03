@@ -62,7 +62,11 @@ function initMobileNav() {
 }
 
 // Run on load and resize
-window.addEventListener('DOMContentLoaded', initMobileNav);
+window.addEventListener('DOMContentLoaded', () => {
+    initMobileNav();
+    // Re-check after a small delay to handle dynamic content or slow loading
+    setTimeout(initMobileNav, 500);
+});
 window.addEventListener('resize', initMobileNav);
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -70,13 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize all features
     initThemeToggle();
-    // init3DToggle(); // Removed for stability and per user request
     initPerfToggle();
-    // initLiquidMenu(); // Disabled for stability
     initMobileMenu();
     initScrollEffects();
-    // init3DCardEffects(); // Removed per user request
-    // initBackgroundParallax(); // Disabled for stability
     initAdminAuth();
 
     // Log current state
