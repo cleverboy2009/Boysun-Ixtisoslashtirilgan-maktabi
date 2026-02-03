@@ -27,19 +27,35 @@ const smoothEasing = (t) => {
 // Mobile Bottom Navigation
 function initMobileNav() {
     if (window.innerWidth <= 768) {
-        if (!document.querySelector('.mobile-bottom-nav')) {
-            const nav = document.createElement('div');
-            nav.className = 'mobile-bottom-nav';
+        // Clear existing to avoid duplicates
+        const existingNav = document.querySelector('.mobile-bottom-nav');
+        if (existingNav) existingNav.remove();
 
-            const currentPath = window.location.pathname;
-            const isIndex = currentPath.endsWith('index.html') || currentPath.endsWith('/') || currentPath === '';
-            const isUpdates = currentPath.includes('updates');
-            const isTeachers = currentPath.includes('teachers');
-            const isContact = currentPath.includes('contact');
-            const isAchievements = currentPath.includes('achievements');
+        const nav = document.createElement('div');
+        nav.className = 'mobile-bottom-nav';
+        nav.id = 'mobileBottomNav';
+
+        const path = window.location.pathname.toLowerCase();
+        // Check if we are on Updates or Contact pages
+        const isSpecialPage = path.includes('updates.html') || path.includes('contact.html');
+
+        if (isSpecialPage) {
+            // Only 'Bosh Sahifa' button for these pages
+            nav.innerHTML = `
+                <a href="index.html" class="mobile-nav-item active" style="flex: 1; gap: 10px; font-weight: 700;">
+                    <i class="fas fa-home" style="font-size: 1.6rem;"></i> 
+                    <span style="font-size: 1rem;">Bosh Sahifaga qaytish</span>
+                </a>
+            `;
+        } else {
+            // Full navigation for other pages
+            const isHome = path.endsWith('index.html') || path.endsWith('/') || path === '';
+            const isAchievements = path.includes('achievements.html');
+            const isTeachers = path.includes('teachers.html');
+            const isAdmission = path.includes('admission.html');
 
             nav.innerHTML = `
-                <a href="index.html" class="mobile-nav-item ${isIndex ? 'active' : ''}">
+                <a href="index.html" class="mobile-nav-item ${isHome ? 'active' : ''}">
                     <i class="fas fa-home"></i> <span>Bosh</span>
                 </a>
                 <a href="achievements.html" class="mobile-nav-item ${isAchievements ? 'active' : ''}">
@@ -48,20 +64,19 @@ function initMobileNav() {
                 <a href="teachers.html" class="mobile-nav-item ${isTeachers ? 'active' : ''}">
                     <i class="fas fa-chalkboard-teacher"></i> <span>Ustoz</span>
                 </a>
-                <a href="updates.html" class="mobile-nav-item ${isUpdates ? 'active' : ''}">
-                    <i class="fas fa-newspaper"></i> <span>Yangi</span>
+                <a href="admission.html" class="mobile-nav-item ${isAdmission ? 'active' : ''}">
+                    <i class="fas fa-user-plus"></i> <span>Qabul</span>
                 </a>
-                <a href="contact.html" class="mobile-nav-item ${isContact ? 'active' : ''}">
+                <a href="contact.html" class="mobile-nav-item">
                     <i class="fas fa-envelope"></i> <span>Aloqa</span>
                 </a>
             `;
-            document.body.appendChild(nav);
         }
+        document.body.appendChild(nav);
+        console.log('📱 Mobile nav initialized for:', isSpecialPage ? 'Special Page' : 'Main Page');
     } else {
         const existingNav = document.querySelector('.mobile-bottom-nav');
-        if (existingNav) {
-            existingNav.remove();
-        }
+        if (existingNav) existingNav.remove();
     }
 }
 
