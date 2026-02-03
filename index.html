@@ -347,12 +347,14 @@
                 `;
             } else {
                 const isH = h.endsWith('index.html') || h.endsWith('/') || !h.includes('.html');
+                const isA = h.includes('about.html');
                 const isY = h.includes('achievements.html');
                 const isU = h.includes('teachers.html');
                 const isQ = h.includes('admission.html');
 
                 nav.innerHTML = `
                     <a href="index.html" class="ios-nav-item ${isH ? 'active' : ''}"><i class="fas fa-home"></i><span>Bosh</span></a>
+                    <a href="about.html" class="ios-nav-item ${isA ? 'active' : ''}"><i class="fas fa-info-circle"></i><span>Haqida</span></a>
                     <a href="achievements.html" class="ios-nav-item ${isY ? 'active' : ''}"><i class="fas fa-trophy"></i><span>Yutuq</span></a>
                     <a href="teachers.html" class="ios-nav-item ${isU ? 'active' : ''}"><i class="fas fa-chalkboard-teacher"></i><span>Ustoz</span></a>
                     <a href="admission.html" class="ios-nav-item ${isQ ? 'active' : ''}"><i class="fas fa-user-plus"></i><span>Qabul</span></a>
