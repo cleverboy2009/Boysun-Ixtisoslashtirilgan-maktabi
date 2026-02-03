@@ -30,20 +30,24 @@ function initMobileNav() {
         if (!document.querySelector('.mobile-bottom-nav')) {
             const nav = document.createElement('div');
             nav.className = 'mobile-bottom-nav';
+
+            const currentPath = window.location.pathname;
+            const isIndex = currentPath.endsWith('index.html') || currentPath.endsWith('/') || currentPath === '';
+
             nav.innerHTML = `
-                <a href="index.html" class="mobile-nav-item ${window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/') ? 'active' : ''}">
+                <a href="index.html" class="mobile-nav-item ${isIndex ? 'active' : ''}">
                     <i class="fas fa-home"></i> <span>Bosh</span>
                 </a>
-                <a href="updates.html" class="mobile-nav-item ${window.location.pathname.includes('updates') ? 'active' : ''}">
+                <a href="updates.html" class="mobile-nav-item ${currentPath.includes('updates') ? 'active' : ''}">
                     <i class="fas fa-newspaper"></i> <span>Yangilik</span>
                 </a>
-                <a href="teachers.html" class="mobile-nav-item ${window.location.pathname.includes('teachers') ? 'active' : ''}">
+                <a href="teachers.html" class="mobile-nav-item ${currentPath.includes('teachers') ? 'active' : ''}">
                     <i class="fas fa-chalkboard-teacher"></i> <span>Ustozlar</span>
                 </a>
-                <a href="admission.html" class="mobile-nav-item ${window.location.pathname.includes('admission') ? 'active' : ''}">
+                <a href="admission.html" class="mobile-nav-item ${currentPath.includes('admission') ? 'active' : ''}">
                     <i class="fas fa-user-plus"></i> <span>Qabul</span>
                 </a>
-                <a href="contact.html" class="mobile-nav-item ${window.location.pathname.includes('contact') ? 'active' : ''}">
+                <a href="contact.html" class="mobile-nav-item ${currentPath.includes('contact') ? 'active' : ''}">
                     <i class="fas fa-envelope"></i> <span>Bog'lanish</span>
                 </a>
             `;
