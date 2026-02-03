@@ -945,9 +945,9 @@ body.light-mode .mobile-toggle:hover {
     }
 
     .mobile-toggle {
-        display: flex;
-        z-index: 1001;
-        /* Above the side menu */
+        display: flex !important;
+        z-index: 10005 !important;
+        /* Above everything */
     }
 
     .nav-links {

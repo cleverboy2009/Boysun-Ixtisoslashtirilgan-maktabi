@@ -33,22 +33,26 @@ function initMobileNav() {
 
             const currentPath = window.location.pathname;
             const isIndex = currentPath.endsWith('index.html') || currentPath.endsWith('/') || currentPath === '';
+            const isUpdates = currentPath.includes('updates');
+            const isTeachers = currentPath.includes('teachers');
+            const isContact = currentPath.includes('contact');
+            const isAchievements = currentPath.includes('achievements');
 
             nav.innerHTML = `
                 <a href="index.html" class="mobile-nav-item ${isIndex ? 'active' : ''}">
                     <i class="fas fa-home"></i> <span>Bosh</span>
                 </a>
-                <a href="updates.html" class="mobile-nav-item ${currentPath.includes('updates') ? 'active' : ''}">
-                    <i class="fas fa-newspaper"></i> <span>Yangilik</span>
+                <a href="achievements.html" class="mobile-nav-item ${isAchievements ? 'active' : ''}">
+                    <i class="fas fa-trophy"></i> <span>Yutuq</span>
                 </a>
-                <a href="teachers.html" class="mobile-nav-item ${currentPath.includes('teachers') ? 'active' : ''}">
-                    <i class="fas fa-chalkboard-teacher"></i> <span>Ustozlar</span>
+                <a href="teachers.html" class="mobile-nav-item ${isTeachers ? 'active' : ''}">
+                    <i class="fas fa-chalkboard-teacher"></i> <span>Ustoz</span>
                 </a>
-                <a href="admission.html" class="mobile-nav-item ${currentPath.includes('admission') ? 'active' : ''}">
-                    <i class="fas fa-user-plus"></i> <span>Qabul</span>
+                <a href="updates.html" class="mobile-nav-item ${isUpdates ? 'active' : ''}">
+                    <i class="fas fa-newspaper"></i> <span>Yangi</span>
                 </a>
-                <a href="contact.html" class="mobile-nav-item ${currentPath.includes('contact') ? 'active' : ''}">
-                    <i class="fas fa-envelope"></i> <span>Bog'lanish</span>
+                <a href="contact.html" class="mobile-nav-item ${isContact ? 'active' : ''}">
+                    <i class="fas fa-envelope"></i> <span>Aloqa</span>
                 </a>
             `;
             document.body.appendChild(nav);
@@ -153,7 +157,15 @@ function initMobileMenu() {
         }
     });
 
-    console.log('✅ Mobile menu initialized with overlay');
+    console.log('✅ Mobile menu initialized with overlay and enhanced z-index');
+
+    // Safety check: ensure mobile toggle is visible on mobile
+    if (window.innerWidth <= 768) {
+        mobileToggle.style.display = 'flex';
+        mobileToggle.style.visibility = 'visible';
+        mobileToggle.style.opacity = '1';
+        mobileToggle.style.zIndex = '10005';
+    }
 }
 
 // ============================================
