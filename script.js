@@ -27,32 +27,37 @@ const smoothEasing = (t) => {
 // Mobile Bottom Navigation
 function initMobileNav() {
     if (window.innerWidth <= 768) {
-        // Clear existing to avoid duplicates
-        const existingNav = document.querySelector('.mobile-bottom-nav');
-        if (existingNav) existingNav.remove();
+        // Force cleanup of any existing nav to ensure a fresh render
+        const existingNavs = document.querySelectorAll('.mobile-bottom-nav');
+        existingNavs.forEach(nav => nav.remove());
 
         const nav = document.createElement('div');
         nav.className = 'mobile-bottom-nav';
+        nav.style.display = 'flex'; // Ensure it's never hidden by other logic
         nav.id = 'mobileBottomNav';
 
-        const path = window.location.pathname.toLowerCase();
-        // Check if we are on Updates or Contact pages
-        const isSpecialPage = path.includes('updates.html') || path.includes('contact.html');
+        const href = window.location.href.toLowerCase();
+
+        // Detect specific pages robustly
+        const isUpdates = href.includes('updates.html');
+        const isContact = href.includes('contact.html');
+        const isSpecialPage = isUpdates || isContact;
 
         if (isSpecialPage) {
-            // Only 'Bosh Sahifa' button for these pages
+            // Only 'Bosh Sahifa' button for these pages as per user request
             nav.innerHTML = `
-                <a href="index.html" class="mobile-nav-item active" style="flex: 1; gap: 10px; font-weight: 700;">
-                    <i class="fas fa-home" style="font-size: 1.6rem;"></i> 
-                    <span style="font-size: 1rem;">Bosh Sahifaga qaytish</span>
+                <a href="index.html" class="mobile-nav-item active" style="flex: 1; gap: 12px; font-weight: 800; color: var(--primary) !important;">
+                    <i class="fas fa-home" style="font-size: 1.8rem;"></i> 
+                    <span style="font-size: 1.1rem; text-transform: uppercase;">Bosh Sahifaga Qaytish</span>
                 </a>
             `;
+            console.log("📱 Special Bottom Nav: Home Only");
         } else {
             // Full navigation for other pages
-            const isHome = path.endsWith('index.html') || path.endsWith('/') || path === '';
-            const isAchievements = path.includes('achievements.html');
-            const isTeachers = path.includes('teachers.html');
-            const isAdmission = path.includes('admission.html');
+            const isHome = href.endsWith('index.html') || href.endsWith('/') || (!href.includes('.html') && href.length < 50);
+            const isAchievements = href.includes('achievements.html');
+            const isTeachers = href.includes('teachers.html');
+            const isAdmission = href.includes('admission.html');
 
             nav.innerHTML = `
                 <a href="index.html" class="mobile-nav-item ${isHome ? 'active' : ''}">
@@ -71,9 +76,9 @@ function initMobileNav() {
                     <i class="fas fa-envelope"></i> <span>Aloqa</span>
                 </a>
             `;
+            console.log("📱 Full Bottom Nav: All Items including Yutuqlar");
         }
         document.body.appendChild(nav);
-        console.log('📱 Mobile nav initialized for:', isSpecialPage ? 'Special Page' : 'Main Page');
     } else {
         const existingNav = document.querySelector('.mobile-bottom-nav');
         if (existingNav) existingNav.remove();
