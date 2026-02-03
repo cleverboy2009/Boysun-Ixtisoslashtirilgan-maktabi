@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https:;">
+    <title>O'qituvchilar - Boysun Ixtisoslashtirilgan Maktabi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+
+<body>
+
+
+    <header class="header">
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <img src="favicon.png" alt="Logo" style="height: 40px; width: auto; border-radius: 8px;">
+                Boysun <span>IM</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Bosh Sahifa</a></li>
+                    <li><a href="about.html" class="nav-link">Biz Haqimizda</a></li>
+                    <li><a href="teachers.html" class="nav-link active">O'qituvchilar</a></li>
+                    <li><a href="achievements.html" class="nav-link">Yutuqlar</a></li>
+                    <li><a href="admission.html" class="nav-link">Qabul</a></li>
+                    <li><a href="contact.html" class="nav-link">Bog'lanish</a></li>
+                    <li><a href="updates.html" class="nav-link">Yangilanishlar</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="admin-access-btn" aria-label="Admin Login">
+                    <i class="fas fa-shield-alt"></i>
+                </button>
+                <button class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+
+                <button class="perf-toggle" aria-label="Toggle Performance Mode">
+                    <i class="fas fa-bolt"></i>
+                </button>
+            </div>
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container hero-content">
+            <h1>Bizning Jamoa</h1>
+            <p>Farzandingizga ta'lim beruvchi malakali ustozlar</p>
+        </div>
+    </div>
+
+    <section class="teachers-section" style="padding: 50px 0;">
+        <div class="container">
+            <div id="teachers-grid" class="teachers-compact-grid">
+                <!-- Fallback Static Teachers (Original State) -->
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Pardayev Jafar</h3>
+                    <p class="teacher-subject">Matematika fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Asqarov Sherzod</h3>
+                    <p class="teacher-subject">Fizika fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Bo'riyev Azizjon</h3>
+                    <p class="teacher-subject">Tarbiya fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Ziyodbek Raxmonov</h3>
+                    <p class="teacher-subject">Rus tili O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Ziyodbek Raxmonov</h3>
+                    <p class="teacher-subject">Rus tili O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Nurboyeva Dilnoza</h3>
+                    <p class="teacher-subject">Biologiya fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Rashidov Sardor</h3>
+                    <p class="teacher-subject">Rus tili fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Qarorova Sarviniso</h3>
+                    <p class="teacher-subject">Biologiya fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Rashidova Go'zal</h3>
+                    <p class="teacher-subject">Rus tili fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Roziqov Azamat</h3>
+                    <p class="teacher-subject">Informatika fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Hamroyev G'iyos</h3>
+                    <p class="teacher-subject">Informatika fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Ismoilov Damir</h3>
+                    <p class="teacher-subject">Ingliz tili fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Mo'minov Firdavs</h3>
+                    <p class="teacher-subject">Tarix fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Boltayeva Gulandon</h3>
+                    <p class="teacher-subject">Ingliz tili fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Husanov Nizomiddin</h3>
+                    <p class="teacher-subject">Tarix fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Turdiyev Sardor</h3>
+                    <p class="teacher-subject">Geografiya fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Rajabova Mavluda</h3>
+                    <p class="teacher-subject">Tarix fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Xursandov Zarif</h3>
+                    <p class="teacher-subject">Informatika fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Kenjaboyev Xudoyberdi</h3>
+                    <p class="teacher-subject">Ingliz tili fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Qudratov Baxtiyor</h3>
+                    <p class="teacher-subject">Matematika fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">To'rayev Abduhakim</h3>
+                    <p class="teacher-subject">Kimyo fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Tojiyev Sultonmurod</h3>
+                    <p class="teacher-subject">Kimyo fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Po'latova Aziza</h3>
+                    <p class="teacher-subject">Ona tili fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Umarova Yulduz</h3>
+                    <p class="teacher-subject">Ingliz tili fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Samatova Farogat</h3>
+                    <p class="teacher-subject">Ingliz tili fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Jo'raqulova Dilrabo</h3>
+                    <p class="teacher-subject">Ona tili fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Eshqulova Nargiza</h3>
+                    <p class="teacher-subject">Ona tili fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Shoymardonov Murodbek</h3>
+                    <p class="teacher-subject">Jismoniy tarbiya fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Ne'matova Lola</h3>
+                    <p class="teacher-subject">Jismoniy tarbiya fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Raximov Bobomurod</h3>
+                    <p class="teacher-subject">Fizika fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">G'ofiyev Akmal</h3>
+                    <p class="teacher-subject">Fizika fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Avazova Mavluda</h3>
+                    <p class="teacher-subject">Fizika fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Xudoyshukurov Jahongir</h3>
+                    <p class="teacher-subject">Matematika fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Faxriddinov Nodir</h3>
+                    <p class="teacher-subject">Matematika fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Sattorova Farogat</h3>
+                    <p class="teacher-subject">Matematika fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Axmadov Nurbek</h3>
+                    <p class="teacher-subject">Matematika fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Choriyev Humoyiddin</h3>
+                    <p class="teacher-subject">Matematika fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Alyorova Feruza</h3>
+                    <p class="teacher-subject">Matematika fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Qilichev Samandar</h3>
+                    <p class="teacher-subject">Matematika fani O'qituvchisi</p>
+                </div>
+
+                <div class="teacher-profile-card glass-card">
+                    <div class="teacher-info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="teacher-name">Abdullayeva Dilafruz</h3>
+                    <p class="teacher-subject">Ingliz tili fani O'qituvchisi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .teachers-compact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            padding: 2rem 0;
+        }
+
+        .teacher-profile-card {
+            position: relative;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .teacher-profile-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .teacher-info-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--white);
+            box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3);
+            position: relative;
+        }
+
+        .teacher-info-icon::after {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-color);
+            opacity: 0.3;
+            animation: pulse-ring 3s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 0.1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+        }
+
+        .teacher-name {
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 0.4rem;
+        }
+
+        .teacher-subject {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+        }
+    </style>
+
+    <script>
+        async function loadDynamicTeachers() {
+            const grid = document.getElementById('teachers-grid');
+            if (!grid) return;
+            try {
+                const res = await fetch('teachers.php');
+                const teachers = await res.json();
+                if (teachers && teachers.length > 0) {
+                    // Clear static fallback content if dynamic data is available
+                    grid.innerHTML = '';
+                    const dynamicHtml = teachers.map(t => `
+                        <div class="teacher-profile-card glass-card">
+                            <div class="teacher-info-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h3 class="teacher-name">${t.name}</h3>
+                            <p class="teacher-subject">${t.subject}</p>
+                        </div>
+                    `).join('');
+                    grid.insertAdjacentHTML('beforeend', dynamicHtml);
+                }
+            } catch (e) {
+                console.log('Static fallback being used.');
+            }
+        }
+        document.addEventListener('DOMContentLoaded', loadDynamicTeachers);
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="margin-bottom: 1rem; display: inline-flex;">
+                        <i class="fas fa-graduation-cap"></i>
+                        Boysun <span>IM</span>
+                    </a>
+                    <p style="color: #94A3B8;">Yosh avlodga sifatli ta'lim va tarbiya berish bizning asosiy
+                        maqsadimizdir.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Tezkor Havolalar</h4>
+                    <ul>
+                        <li><a href="index.html">Bosh Sahifa</a></li>
+                        <li><a href="about.html">Biz Haqimizda</a></li>
+                        <li><a href="teachers.html">O'qituvchilar</a></li>
+                        <li><a href="achievements.html">Yutuqlar</a></li>
+                        <li><a href="admission.html">Qabul</a></li>
+                        <li><a href="contact.html">Bog'lanish</a></li>
+                        <li><a href="updates.html">Yangilanishlar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Bizni Kuzating</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://t.me/ptmaboysun" class="social-icon"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright"
+                style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid #1e293b; padding-top: 2rem;">
+                <p style="margin: 0;">&copy; 2026 Boysun Ixtisoslashtirilgan Maktabi. Barcha huquqlar himoyalangan.</p>
+                <p style="margin: 0; font-weight: 600; color: var(--accent-color);">Powered by BoysunIM Group</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="liquid-effects.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

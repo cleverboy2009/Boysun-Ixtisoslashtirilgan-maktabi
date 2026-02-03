@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "title": "ZUKKO KITOBXON",
+        "date": "29.01.2026",
+        "content": "Ixtisoslashtirilgan taʼlim muassasalari agentligi tizimidagi Boysun tuman ixtisoslashtirilgan maktabi kutubxonasida 5-sinf oʻquvchilari bilan mustaqil o'qigan badiiy asarlari bo'yicha \"Zukko kitobxon\" tanlovi o'tkazildi. Kutubxona mudirasi: O.Bo'riyeva",
+        "image": "zukko_kitobxon2.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Maktabda ota-onalar yig'ilishi",
+        "date": "28.01.2024",
+        "content": "Bugun maktabimizda ota-onalar yig'ilishi bo'lib o'tdi. Yig'ilishda o'quvchilarning odob-axloqi va o'zlashtirishi muhokama qilindi.",
+        "image": "yigilish.png"
+    },
+    {
+        "id": 3,
+        "title": "Ma'naviyat soati tashkil etildi",
+        "date": "27.01.2024",
+        "content": "O'quvchilarning dunyoqarashini va vatanparvarlik hissini oshirish maqsadida ma'naviyat soati tashkil etildi.",
+        "image": "manaviyat soati.png"
+    },
+    {
+        "id": 4,
+        "title": "Maktabimiz tarixi va yutuqlari",
+        "date": "26.01.2024",
+        "content": "Boysun tuman ixtisoslashtirilgan maktabi o'zining ko'p yillik tarixi davomida ko'plab yutuqlarga erishgan.",
+        "image": "maktab haqida.png"
+    }
+]

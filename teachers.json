@@ -1,0 +1,202 @@
+[
+    {
+        "id": 1,
+        "name": "Pardayev Jafar",
+        "subject": "Matematika fani O'qituvchisi"
+    },
+    {
+        "id": 2,
+        "name": "Asqarov Sherzod",
+        "subject": "Fizika fani O'qituvchisi"
+    },
+    {
+        "id": 3,
+        "name": "Bo'riyev Azizjon",
+        "subject": "Tarbiya fani O'qitovchisi"
+    },
+    {
+        "id": 4,
+        "name": "Xadicha Ramazonova",
+        "subject": "Maktab Direktori"
+    },
+    {
+        "id": 7,
+        "name": "Ziyodulla Ustoz",
+        "subject": "Tarix fani O'qituvchisi"
+    },
+    {
+        "id": 8,
+        "name": "Nurboyeva Dilnoza",
+        "subject": "Biologiya fani O'qituvchisi"
+    },
+    {
+        "id": 9,
+        "name": "Rashidov Sardor",
+        "subject": "Rus tili fani O'qituvchisi"
+    },
+    {
+        "id": 10,
+        "name": "Qarorova Sarviniso",
+        "subject": "Biologiya fani O'qituvchisi"
+    },
+    {
+        "id": 11,
+        "name": "Rashidova Go'zal",
+        "subject": "Rus tili fani O'qituvchisi"
+    },
+    {
+        "id": 12,
+        "name": "Roziqov Azamat",
+        "subject": "Informatika fani O'qituvchisi"
+    },
+    {
+        "id": 13,
+        "name": "Hamroyev G'iyos",
+        "subject": "Informatika fani O'qituvchisi"
+    },
+    {
+        "id": 14,
+        "name": "Ismoilov Damir",
+        "subject": "Ingliz tili fani O'qituvchisi"
+    },
+    {
+        "id": 15,
+        "name": "Mo'minov Firdavs",
+        "subject": "Tarix fani O'qituvchisi"
+    },
+    {
+        "id": 16,
+        "name": "Boltayeva Gulandon",
+        "subject": "Ingliz tili fani O'qituvchisi"
+    },
+    {
+        "id": 17,
+        "name": "Husanov Nizomiddin",
+        "subject": "Tarix fani O'qituvchisi"
+    },
+    {
+        "id": 18,
+        "name": "Turdiyev Sardor",
+        "subject": "Geografiya fani O'qituvchisi"
+    },
+    {
+        "id": 19,
+        "name": "Rajabova Mavluda",
+        "subject": "Tarix fani O'qituvchisi"
+    },
+    {
+        "id": 20,
+        "name": "Xursandov Zarif",
+        "subject": "Informatika fani O'qituvchisi"
+    },
+    {
+        "id": 21,
+        "name": "Kenjaboyev Xudoyberdi",
+        "subject": "Ingliz tili fani O'qituvchisi"
+    },
+    {
+        "id": 22,
+        "name": "Qudratov Baxtiyor",
+        "subject": "Matematika fani O'qituvchisi"
+    },
+    {
+        "id": 23,
+        "name": "To'rayev Abduhakim",
+        "subject": "Kimyo fani O'qituvchisi"
+    },
+    {
+        "id": 24,
+        "name": "Tojiyev Sultonmurod",
+        "subject": "Kimyo fani O'qituvchisi"
+    },
+    {
+        "id": 25,
+        "name": "Po'latova Aziza",
+        "subject": "Ona tili fani O'qituvchisi"
+    },
+    {
+        "id": 26,
+        "name": "Umarova Yulduz",
+        "subject": "Ingliz tili fani O'qituvchisi"
+    },
+    {
+        "id": 27,
+        "name": "Samatova Farogat",
+        "subject": "Ingliz tili fani O'qituvchisi"
+    },
+    {
+        "id": 28,
+        "name": "Jo'raqulova Dilrabo",
+        "subject": "Ona tili fani O'qituvchisi"
+    },
+    {
+        "id": 29,
+        "name": "Eshqulova Nargiza",
+        "subject": "Ona tili fani O'qituvchisi"
+    },
+    {
+        "id": 30,
+        "name": "Shoymardonov Murodbek",
+        "subject": "Jismoniy tarbiya fani O'qituvchisi"
+    },
+    {
+        "id": 31,
+        "name": "Ne'matova Lola",
+        "subject": "Jismoniy tarbiya fani O'qituvchisi"
+    },
+    {
+        "id": 32,
+        "name": "Raximov Bobomurod",
+        "subject": "Fizika fani O'qituvchisi"
+    },
+    {
+        "id": 33,
+        "name": "G'ofiyev Akmal",
+        "subject": "Fizika fani O'qituvchisi"
+    },
+    {
+        "id": 34,
+        "name": "Avazova Mavluda",
+        "subject": "Fizika fani O'qituvchisi"
+    },
+    {
+        "id": 35,
+        "name": "Xudoyshukurov Jahongir",
+        "subject": "Matematika fani O'qituvchisi"
+    },
+    {
+        "id": 36,
+        "name": "Faxriddinov Nodir",
+        "subject": "Matematika fani O'qituvchisi"
+    },
+    {
+        "id": 37,
+        "name": "Sattorova Farogat",
+        "subject": "Matematika fani O'qituvchisi"
+    },
+    {
+        "id": 38,
+        "name": "Axmadov Nurbek",
+        "subject": "Matematika fani O'qituvchisi"
+    },
+    {
+        "id": 39,
+        "name": "Choriyev Humoyiddin",
+        "subject": "Matematika fani O'qituvchisi"
+    },
+    {
+        "id": 40,
+        "name": "Alyorova Feruza",
+        "subject": "Matematika fani O'qituvchisi"
+    },
+    {
+        "id": 41,
+        "name": "Qilichev Samandar",
+        "subject": "Matematika fani O'qituvchisi"
+    },
+    {
+        "id": 42,
+        "name": "Abdullayeva Dilafruz",
+        "subject": "Ingliz tili fani O'qituvchisi"
+    }
+]

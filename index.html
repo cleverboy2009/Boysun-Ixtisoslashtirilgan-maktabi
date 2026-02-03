@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https:;">
+    <title>Boysun Maktabi - Kelajak Sari Qadam</title>
+    <meta name="description" content="Zamonaviy ta'lim va yuqori sifatli bilim beruvchi maktab.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+
+<body>
+
+    <!-- Liquid Background Blobs -->
+
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <img src="favicon.png" alt="Logo" style="height: 40px; width: auto; border-radius: 8px;">
+                Boysun <span>IM</span>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link active">Bosh Sahifa</a></li>
+                    <li><a href="about.html" class="nav-link">Biz Haqimizda</a></li>
+                    <li><a href="teachers.html" class="nav-link">O'qituvchilar</a></li>
+                    <li><a href="achievements.html" class="nav-link">Yutuqlar</a></li>
+                    <li><a href="admission.html" class="nav-link">Qabul</a></li>
+                    <li><a href="contact.html" class="nav-link">Bog'lanish</a></li>
+                    <li><a href="updates.html" class="nav-link">Yangilanishlar</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="admin-access-btn" aria-label="Admin Login">
+                    <i class="fas fa-shield-alt"></i>
+                </button>
+                <button class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+
+                <button class="perf-toggle" aria-label="Toggle Performance Mode">
+                    <i class="fas fa-bolt"></i>
+                </button>
+            </div>
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Kelajak Liderlarini <br> Tarbiyalaymiz</h1>
+            <p>Bizning maktab zamonaviy texnologiyalar, malakali o'qituvchilar va innovatsion yondashuv orqali
+                farzandingizga sifatli ta'lim beradi.</p>
+            <div class="hero-actions">
+                <a href="#about" class="btn btn-primary">Batafsil O'qish</a>
+                <a href="contact.html" class="btn btn-secondary">Bog'lanish</a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nega Aynan Biz?</h2>
+                <p>Biz o'quvchilarimizga nafaqat bilim, balki hayotiy ko'nikmalarni ham o'rgatamiz.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card glass-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Zamonaviy Texnologiyalar</h3>
+                    <p>Kompyuter sinflari, IT to'garaklari va robototexnika darslari.</p>
+                </div>
+
+                <div class="feature-card glass-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Malakali Ustozlar</h3>
+                    <p>Xalqaro toifadagi va ko'p yillik tajribaga ega pedagoglar jamoasi.</p>
+                </div>
+
+                <div class="feature-card glass-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <h3>Sport va Sog'lom Muhit</h3>
+                    <p>Zamonaviy sport zallari va turli xil sport to'garaklari.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News/Press Section -->
+    <section class="news">
+        <div class="container">
+            <div class="section-title">
+                <h2>So'nggi Yangiliklar</h2>
+                <p>Maktabimiz hayotidagi eng muhim voqealar va yangiliklar bilan tanishing.</p>
+            </div>
+
+            <div class="news-grid" id="main-news-container">
+                <!-- Fallback Static News (Original State) -->
+                <div class="news-card glass-card">
+                    <div class="news-image">
+                        <img src="yigilish.png" alt="Ota-onalar yig'ilishi">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">28.01.2024</span>
+                        <h3>Maktabda ota-onalar yig'ilishi</h3>
+                        <h6>Bugun maktabimizda ota-onalar yig'ilishi bo'lib o'tdi. Yig'ilishda o'quvchilarning
+                            odob-axloqi muhokama qilindi.</h6>
+                        <a href="https://t.me/ptmaboysun" target="_blank" class="read-more">Batafsil <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="news-card glass-card">
+                    <div class="news-image">
+
+                        <img src="manaviyat soati.png" alt="Ma'naviyat soati">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">27.01.2024</span>
+                        <h3>Ma'naviyat soati tashkil etildi</h3>
+                        <h6>O'quvchilarning dunyoqarashini va vatanparvarlik hissini oshirish maqsadida ma'naviyat soati
+                            tashkil etildi.</h6>
+                        <a href="https://t.me/ptmaboysun" target="_blank" class="read-more">Batafsil <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+
+                <div class="news-grid" id="main-news-container">
+                    <!-- Fallback Static News (Original State) -->
+                    <div class="news-card glass-card">
+                        <div class="news-image">
+                            <img src="zukko_kitobxon.jpg" alt="ZUKKO KITOBXON ">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date">28.01.2024</span>
+                            <h3>✅Kutubxona mudirasi: O.Bo‘riyeva </h3>
+                            <h6>🏢 Ixtisoslashtirilgan taʼlim muassasalari agentligi tizimidagi Boysun tuman
+                                ixtisoslashtirilgan maktabi kutubxonasida 5-sinf  oʻquvchilari bilan mustaqil o‘qigan
+                                badiiy asarlari bo‘yicha "Zukko kitobxon" tanlovi o‘tkazildi.<br>
+
+                                🌍 Bizni ijtimoiy tarmoqlarda kuzating</h6>
+                            <a href="https://t.me/ptmaboysun" target="_blank" class="read-more">Batafsil <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    // Dynamic News Loading for Index Page
+                    async function loadHomeNews() {
+                        const container = document.getElementById('main-news-container');
+                        try {
+                            const res = await fetch('news.php');
+                            const news = await res.json();
+                            if (news && news.length > 0) {
+                                // Clear static fallback content
+                                container.innerHTML = '';
+
+                                const dynamicHtml = news.slice(0, 3).map(item => `
+                                <div class="news-card glass-card">
+                                    <div class="news-image">
+                                        <img src="${item.image || 'yigilish.png'}" alt="News">
+                                    </div>
+                                    <div class="news-content">
+                                        <span class="news-date">${item.date}</span>
+                                        <h3>${item.title}</h3>
+                                        <h6>${item.content.substring(0, 150)}...</h6>
+                                        <a href="https://t.me/ptmaboysun" target="_blank" class="read-more">Batafsil <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            `).join('');
+                                container.innerHTML = dynamicHtml;
+                            }
+                        } catch (e) {
+                            console.log('News loading failed, using static fallback', e);
+                        }
+                    }
+                    document.addEventListener('DOMContentLoaded', loadHomeNews);
+                </script>
+            </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-content container">
+            <h2>Farzandingiz Kelajagi Uchun Hozir Harakat Qiling</h2>
+            <p style="color: rgba(255,255,255,0.8); margin-bottom: 2rem;">2024-2025 o'quv yili uchun qabul davom
+                etmoqda.</p>
+            <a href="contact.html" class="btn btn-secondary">Ariza Topshirish</a>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="margin-bottom: 1rem; display: inline-flex;">
+                        <img src="favicon.png" alt="Logo"
+                            style="height: 40px; width: auto; border-radius: 8px; margin-right: 10px;">
+                        Boysun <span>IM</span>
+                    </a>
+                    <p style="color: #94A3B8;">Yosh avlodga sifatli ta'lim va tarbiya berish bizning asosiy
+                        maqsadimizdir.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Tezkor Havolalar</h4>
+                    <ul>
+                        <li><a href="index.html">Bosh Sahifa</a></li>
+                        <li><a href="about.html">Biz Haqimizda</a></li>
+                        <li><a href="teachers.html">O'qituvchilar</a></li>
+                        <li><a href="achievements.html">Yutuqlar</a></li>
+                        <li><a href="admission.html">Qabul</a></li>
+                        <li><a href="contact.html">Bog'lanish</a></li>
+                        <li><a href="updates.html">Yangilanishlar</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Bizni Kuzating</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://t.me/ptmaboysun" class="social-icon"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright"
+                style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid #1e293b; padding-top: 2rem;">
+                <p style="margin: 0;">&copy; 2026 Boysun Ixtisoslashtirilgan Maktabi. Barcha huquqlar himoyalangan.</p>
+                <p style="margin: 0; font-weight: 600; color: var(--accent-color);">Powered by BoysunIM Group</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="liquid-effects.js"></script>
+    <script src="script.js"></script>
+    <script>
+        async function loadSiteSettings() {
+            try {
+                const res = await fetch('settings.php');
+                const data = await res.json();
+                if (data.site_name) {
+                    console.log("Site settings loaded:", data);
+                }
+            } catch (e) { }
+        }
+        loadSiteSettings();
+    </script>
+</body>
+
+</html>
