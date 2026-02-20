@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https:;">
+        content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https: https://generativelanguage.googleapis.com;">
     <title>Yutuqlar - Boysun Ixtisoslashtirilgan Maktabi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css?v=4.0">
+    <link rel="stylesheet" href="animations.css">
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
         /* Force Mobile Nav Styles */
@@ -73,13 +74,13 @@
 
     <header class="header">
         <div class="container navbar">
-            <a href="index.html" class="logo">
+            <a href="main_site.html" class="logo">
                 <img src="favicon.png" alt="Logo" style="height: 40px; width: auto; border-radius: 8px;">
                 Boysun <span>IM</span>
             </a>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="index.html" class="nav-link">Bosh Sahifa</a></li>
+                    <li><a href="main_site.html" class="nav-link">Bosh Sahifa</a></li>
                     <li><a href="about.html" class="nav-link">Biz Haqimizda</a></li>
                     <li><a href="teachers.html" class="nav-link">O'qituvchilar</a></li>
                     <li><a href="achievements.html" class="nav-link active">Yutuqlar</a></li>
@@ -89,13 +90,15 @@
                 </ul>
             </nav>
             <div class="header-actions">
+                <a href="portal.html" class="theme-toggle no-anim" title="Portal" style="text-decoration: none;">
+                    <i class="fas fa-th"></i>
+                </a>
                 <button class="admin-access-btn" aria-label="Admin Login">
                     <i class="fas fa-shield-alt"></i>
                 </button>
                 <button class="theme-toggle" aria-label="Toggle Theme">
                     <i class="fas fa-sun"></i>
                 </button>
-
                 <button class="perf-toggle" aria-label="Toggle Performance Mode">
                     <i class="fas fa-bolt"></i>
                 </button>
@@ -254,7 +257,7 @@
                 <div class="footer-col">
                     <h4>Tezkor Havolalar</h4>
                     <ul>
-                        <li><a href="index.html">Bosh Sahifa</a></li>
+                        <li><a href="main_site.html">Bosh Sahifa</a></li>
                         <li><a href="about.html">Biz Haqimizda</a></li>
                         <li><a href="teachers.html">O'qituvchilar</a></li>
                         <li><a href="achievements.html">Yutuqlar</a></li>
@@ -295,20 +298,18 @@
 
             nav.innerHTML = `
                     <a href="index.html" class="ios-nav-item ${isH ? 'active' : ''}"><i class="fas fa-home"></i><span>Bosh</span></a>
-                    <a href="about.html" class="ios-nav-item ${isA ? 'active' : ''}"><i class="fas fa-info-circle"></i><span>Haqida</span></a>
-                    <a href="achievements.html" class="ios-nav-item ${isY ? 'active' : ''}"><i class="fas fa-trophy"></i><span>Yutuq</span></a>
-                    <a href="teachers.html" class="ios-nav-item ${isU ? 'active' : ''}"><i class="fas fa-chalkboard-teacher"></i><span>Ustoz</span></a>
-                    <a href="admission.html" class="ios-nav-item ${isQ ? 'active' : ''}"><i class="fas fa-user-plus"></i><span>Qabul</span></a>
-                    <a href="contact.html" class="ios-nav-item"><i class="fas fa-envelope"></i><span>Aloqa</span></a>
-                `;
+            `;
             document.body.appendChild(nav);
         }
         window.addEventListener('DOMContentLoaded', createMobileNav);
         window.addEventListener('resize', createMobileNav);
         setTimeout(createMobileNav, 1000);
     </script>
-    <script src="liquid-effects.js"></script>
-    <script src="script.js?v=4.0"></script>
+
+    <script src="page-loader.js"></script>
+    <script src="script.js?v=5.0"></script>
+    <script src="page-animations.js"></script>
+    <script src="ai-chatbot.js"></script>
 </body>
 
 </html>

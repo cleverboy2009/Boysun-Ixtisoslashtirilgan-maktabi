@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https:;">
+    <title>Boysun IM Portal</title>
+    <meta name="description" content="Boysun Ixtisoslashtirilgan Maktabi - Portal">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css?v=5.0">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        /* Portal Specific Styles */
+        .portal-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portal-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .portal-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .portal-title h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .portal-title p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .portal-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 320px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .portal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: 24px;
+        }
+
+        .portal-card:hover::before {
+            opacity: 1;
+        }
+
+        .portal-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--card-color);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+                0 0 40px var(--card-glow);
+        }
+
+        .portal-card:nth-child(1) {
+            --card-color: var(--neon-blue);
+            --card-glow: rgba(0, 242, 255, 0.3);
+            animation-delay: 0.1s;
+        }
+
+        .portal-card:nth-child(2) {
+            --card-color: var(--neon-purple);
+            --card-glow: rgba(168, 85, 247, 0.3);
+            animation-delay: 0.2s;
+        }
+
+        .portal-card:nth-child(3) {
+            --card-color: var(--primary);
+            --card-glow: rgba(59, 130, 246, 0.3);
+            animation-delay: 0.3s;
+        }
+
+        .portal-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--card-color), rgba(255, 255, 255, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .portal-card:hover .portal-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 10px 30px var(--card-glow);
+        }
+
+        .portal-icon i {
+            font-size: 3rem;
+            color: #fff;
+        }
+
+        .portal-card h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.75rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .portal-card p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .portal-card .arrow {
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            color: var(--card-color);
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .portal-card:hover .arrow {
+            transform: translateX(10px);
+        }
+
+        /* Light Mode */
+        body.light-mode .portal-card {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode .portal-card::before {
+            background: linear-gradient(135deg, transparent, rgba(0, 0, 0, 0.03));
+        }
+
+        body.light-mode .portal-card:hover {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15),
+                0 0 40px var(--card-glow);
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .portal-container {
+                padding: 1rem;
+            }
+
+            .portal-title {
+                margin-bottom: 2rem;
+            }
+
+            .portal-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.75rem;
+            }
+
+            .portal-card {
+                min-height: 220px;
+                padding: 1.5rem 0.5rem;
+            }
+
+            .portal-icon {
+                width: 70px;
+                height: 70px;
+                margin-bottom: 0.75rem;
+            }
+
+            .portal-icon i {
+                font-size: 2rem;
+            }
+
+            .portal-card h2 {
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .portal-card p,
+            .portal-card .arrow {
+                display: none;
+            }
+
+            font-size: 1.5rem;
+        }
+
+        .header {
+            padding: 1rem 0;
+        }
+
+        .header .navbar {
+            padding: 0 1rem;
+        }
+
+        .mobile-toggle {
+            display: none !important;
+        }
+
+        body {
+            padding-bottom: 80px;
+        }
+        }
+
+        /* iOS Mobile Navigation */
+        .ios-mobile-nav {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .ios-mobile-nav {
+                display: flex !important;
+                justify-content: space-around !important;
+                align-items: center !important;
+                position: fixed !important;
+                bottom: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 70px !important;
+                background: #0f172a !important;
+                border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+                z-index: 999999 !important;
+                padding-bottom: env(safe-area-inset-bottom) !important;
+                box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5) !important;
+            }
+
+            body.light-mode .ios-mobile-nav {
+                background: #ffffff !important;
+                border-top: 1px solid #e2e8f0 !important;
+            }
+
+            .ios-nav-item {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                color: #94a3b8 !important;
+                text-decoration: none !important;
+                flex: 1 !important;
+                font-size: 0.75rem !important;
+                gap: 4px !important;
+                transition: all 0.3s ease;
+            }
+
+            .ios-nav-item.active {
+                color: #2563ea !important;
+            }
+
+            .ios-nav-item i {
+                font-size: 1.5rem !important;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container navbar">
+            <a href="portal.html" class="logo">
+                <img src="favicon.png" alt="Logo" style="height: 40px; width: auto; border-radius: 8px;">
+                Boysun <span>IM</span>
+            </a>
+
+            <nav style="flex: 1;"></nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button class="perf-toggle" aria-label="Toggle Performance Mode">
+                    <i class="fas fa-bolt"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Portal Hero -->
+    <section class="portal-hero">
+        <div class="portal-container">
+            <div class="portal-title">
+                <h1>Boysun IM Portal</h1>
+                <p>Maktab tizimlariga kirish uchun bo'limni tanlang</p>
+            </div>
+
+            <div class="portal-grid">
+                <!-- Grading Card -->
+                <a href="grading/index.html" class="portal-card">
+                    <div class="portal-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h2>Baholash</h2>
+                    <p>O'quvchilar reytingi va baholash tizimi</p>
+                    <i class="fas fa-arrow-right arrow"></i>
+                </a>
+
+                <!-- Timetable Card -->
+                <a href="timetable/index.html" class="portal-card">
+                    <div class="portal-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h2>Dars Jadvali</h2>
+                    <p>Sinflar va o'qituvchilar dars jadvali</p>
+                    <i class="fas fa-arrow-right arrow"></i>
+                </a>
+
+                <!-- Main Site Card -->
+                <a href="main_site.html" class="portal-card">
+                    <div class="portal-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <h2>Boysun IM Sayti</h2>
+                    <p>Maktab haqida ma'lumot va yangiliklar</p>
+                    <i class="fas fa-arrow-right arrow"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- iOS Mobile Navigation (Original) -->
+    <nav class="ios-mobile-nav">
+        <a href="grading/index.html" class="ios-nav-item">
+            <i class="fas fa-chart-line"></i>
+            <span>Baholash</span>
+        </a>
+        <a href="timetable/index.html" class="ios-nav-item">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Jadval</span>
+        </a>
+        <a href="portal.html" class="ios-nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Portal</span>
+        </a>
+        <a href="#" class="ios-nav-item theme-toggle">
+            <i class="fas fa-sun"></i>
+            <span>Mavzu</span>
+        </a>
+        <a href="main_site.html" class="ios-nav-item">
+            <i class="fas fa-school"></i>
+            <span>Sayt</span>
+        </a>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="security.js"></script>
+    <script src="script.js?v=5.0"></script>
+    <script src="particles.js"></script>
+</body>
+
+</html>

@@ -102,10 +102,88 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initScrollEffects();
     initAdminAuth();
+    initCosmicEffects(); // NEW: Cosmic Animations
+    init3DCardEffects(); // NEW: 3D Tilt
 
     // Log current state
     logCurrentState();
 });
+
+// ============================================
+// COSMIC EFFECTS (Scroll, Magnetic, Loader)
+// ============================================
+
+function initCosmicEffects() {
+    // 1. Scroll Reveal
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Only animate once
+            }
+        });
+    }, observerOptions);
+
+    const revealElements = document.querySelectorAll('.glass-card, .section-title, .feature-icon, .btn');
+    revealElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)';
+        observer.observe(el);
+    });
+
+    // Add visible class style dynamically if not in CSS
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    `;
+    document.head.appendChild(style);
+
+    // 2. Magnetic Buttons
+    const buttons = document.querySelectorAll('.btn-primary, .btn-secondary');
+    buttons.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px) scale(1.05)`;
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0, 0) scale(1)';
+        });
+    });
+
+    // 3. Preloader Simulation (Cosmic Fade)
+    const overlay = document.createElement('div');
+    overlay.className = 'cosmic-loader';
+    overlay.style.cssText = `
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: #050510; z-index: 99999;
+        display: flex; align-items: center; justify-content: center;
+        transition: opacity 0.8s ease;
+    `;
+    overlay.innerHTML = '<div style="color: #00f2ff; font-family: serif; font-size: 2rem;">Boysun IM</div>';
+    document.body.appendChild(overlay);
+
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            overlay.style.opacity = '0';
+            setTimeout(() => overlay.remove(), 800);
+        }, 500);
+    });
+
+    console.log('🌌 Cosmic Effects Initialized');
+}
 
 // ============================================
 // MOBILE HAMBURGER MENU
@@ -252,59 +330,76 @@ function initPerfToggle() {
 // ============================================
 
 function initThemeToggle() {
-    const themeToggle = document.querySelector('.theme-toggle');
+    const themeToggles = document.querySelectorAll('.theme-toggle');
     const body = document.body;
 
-    if (!themeToggle) return;
-
-    const icon = themeToggle.querySelector('i');
+    if (themeToggles.length === 0) return;
 
     // Load saved theme
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'light') {
         body.classList.add('light-mode');
-        if (icon) {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
-        }
+        updateIcons(true);
+    } else {
+        updateIcons(false);
     }
 
-    // Toggle theme with smooth transition
-    themeToggle.addEventListener('click', () => {
-        // Add transition class
-        body.style.transition = 'background-color 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)';
-
-        body.classList.toggle('light-mode');
-
-        // Animate icon with rotation
-        if (icon) {
-            icon.style.transform = 'rotate(360deg) scale(0.8)';
-
-            setTimeout(() => {
-                if (body.classList.contains('light-mode')) {
+    // Helper to update all icons
+    function updateIcons(isLight) {
+        themeToggles.forEach(btn => {
+            const icon = btn.querySelector('i');
+            if (icon) {
+                if (isLight) {
                     icon.classList.remove('fa-sun');
                     icon.classList.add('fa-moon');
-                    localStorage.setItem('theme', 'light');
                 } else {
                     icon.classList.remove('fa-moon');
                     icon.classList.add('fa-sun');
-                    localStorage.setItem('theme', 'dark');
                 }
-
+                // Reset transform/animation
                 icon.style.transform = 'rotate(0deg) scale(1)';
+            }
+        });
+    }
+
+    // Attach event listeners to all buttons
+    themeToggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default if it's a link
+
+            // Add transition class
+            body.style.transition = 'background-color 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)';
+
+            body.classList.toggle('light-mode');
+            const isLight = body.classList.contains('light-mode');
+
+            // Save preference
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+
+            // Animate all icons
+            themeToggles.forEach(btn => {
+                const icon = btn.querySelector('i');
+                if (icon) {
+                    icon.style.transform = 'rotate(360deg) scale(0.8)';
+                }
+            });
+
+            // Update icons after delay for animation
+            setTimeout(() => {
+                updateIcons(isLight);
             }, 300);
-        }
 
-        // Create ripple effect
-        createRippleEffect(themeToggle);
+            // Create ripple effect
+            createRippleEffect(toggle);
 
-        // Remove transition after animation
-        setTimeout(() => {
-            body.style.transition = '';
-        }, 600);
+            // Remove transition after animation
+            setTimeout(() => {
+                body.style.transition = '';
+            }, 600);
+        });
     });
 
-    console.log('✅ Theme toggle initialized');
+    console.log(`✅ Theme toggle initialized (${themeToggles.length} buttons)`);
 }
 
 // ============================================
@@ -389,133 +484,6 @@ function init3DToggle() {
     window.is3DEnabled = () => is3DEnabled;
 
     console.log('✅ 3D toggle initialized:', is3DEnabled ? 'enabled' : 'disabled');
-}
-
-// ============================================
-// iOS 26 LIQUID MENU ANIMATIONS
-// ============================================
-
-function initLiquidMenu() {
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    navLinks.forEach(link => {
-        // Create liquid background layer
-        const liquidBg = document.createElement('div');
-        liquidBg.className = 'liquid-bg';
-        liquidBg.style.cssText = `
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
-            border-radius: 30px;
-            opacity: 0;
-            transform: scale(0.8);
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            z-index: -1;
-            filter: blur(10px);
-        `;
-        link.style.position = 'relative';
-        link.appendChild(liquidBg);
-
-        // Create glow layer
-        const glow = document.createElement('div');
-        glow.className = 'menu-glow';
-        glow.style.cssText = `
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.4), transparent 70%);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-        `;
-        link.appendChild(glow);
-
-        // Hover effects with magnetic cursor
-        link.addEventListener('mouseenter', function (e) {
-            const liquidBg = this.querySelector('.liquid-bg');
-            const glow = this.querySelector('.menu-glow');
-
-            // Liquid background expansion
-            liquidBg.style.opacity = '1';
-            liquidBg.style.transform = 'scale(1)';
-            liquidBg.style.filter = 'blur(0px)';
-
-            // Glow effect
-            glow.style.width = '200px';
-            glow.style.height = '200px';
-            glow.style.opacity = '1';
-
-            // Add shimmer animation
-            this.style.boxShadow = '0 8px 32px rgba(59, 130, 246, 0.3)';
-        });
-
-        link.addEventListener('mouseleave', function () {
-            const liquidBg = this.querySelector('.liquid-bg');
-            const glow = this.querySelector('.menu-glow');
-
-            if (!this.classList.contains('active')) {
-                liquidBg.style.opacity = '0';
-                liquidBg.style.transform = 'scale(0.9)';
-                liquidBg.style.filter = 'blur(10px)';
-            }
-
-            glow.style.width = '0';
-            glow.style.height = '0';
-            glow.style.opacity = '0';
-
-            this.style.boxShadow = '';
-        });
-
-        // Magnetic effect on mouse move
-        link.addEventListener('mousemove', function (e) {
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const deltaX = (x - centerX) / centerX;
-            const deltaY = (y - centerY) / centerY;
-
-            // Apply subtle magnetic pull
-            const maxMove = 3;
-            this.style.transform = `translate(${deltaX * maxMove}px, ${deltaY * maxMove}px) scale(1.05)`;
-
-            // Move glow to cursor position
-            const glow = this.querySelector('.menu-glow');
-            glow.style.top = `${y}px`;
-            glow.style.left = `${x}px`;
-        });
-
-        link.addEventListener('mouseleave', function () {
-            if (!this.classList.contains('active')) {
-                this.style.transform = '';
-            }
-        });
-
-        // Click ripple effect
-        link.addEventListener('click', function (e) {
-            createRippleEffect(this, e);
-        });
-
-        // Keep active state styled
-        if (link.classList.contains('active')) {
-            const liquidBg = link.querySelector('.liquid-bg');
-            liquidBg.style.opacity = '1';
-            liquidBg.style.transform = 'scale(1)';
-            liquidBg.style.filter = 'blur(0px)';
-        }
-    });
-
-    console.log('✅ iOS 26 liquid menu initialized');
 }
 
 // ============================================

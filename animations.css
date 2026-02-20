@@ -1,0 +1,188 @@
+/* ONE UI 8 UNLOCK ANIMATION */
+/* Login Success Trigger */
+
+@keyframes screenUnlock {
+    0% {
+        transform: scale(1);
+        filter: brightness(1);
+        border-radius: 0;
+    }
+
+    40% {
+        /* Press in slightly */
+        transform: scale(0.98);
+        filter: brightness(1.1);
+    }
+
+    100% {
+        /* Expand massively and fade to reveal next screen (simulated by fading out current) */
+        transform: scale(1.5);
+        opacity: 0;
+        filter: blur(20px);
+    }
+}
+
+@keyframes iconUnlockReveal {
+
+    /* For the next page elements to pop in */
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.8);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(-10px) scale(1.05);
+        /* Overshoot */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Class to apply on Login Success */
+body.unlock-transition {
+    transform-origin: center 80%;
+    /* Expand from bottom-center roughly where finger might be */
+    animation: screenUnlock 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* KEEP EXISTING ANIMATIONS */
+
+/* 1. App Launch (Entrance) */
+@keyframes appEntrance {
+    0% {
+        opacity: 0;
+        transform: scale(0.92) translateY(10px);
+        filter: blur(5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* 2. Exit Forward (Zoom In / Dive) */
+@keyframes exitZoomIn {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.15);
+        filter: blur(10px);
+    }
+}
+
+/* 3. Exit Back (Shrink) */
+@keyframes exitShrink {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+        border-radius: 0;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.85);
+        border-radius: 40px;
+    }
+}
+
+/* Base Body - Entrance Animation */
+body {
+    transform-origin: center top;
+    animation: appEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    overflow-x: hidden;
+    background-color: var(--cosmic-bg);
+}
+
+/* Page Exit Forward (Zoom In) */
+body.page-exit-forward {
+    transform-origin: center center;
+    animation: exitZoomIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+    pointer-events: none;
+}
+
+/* Page Exit Back (Shrink) */
+body.page-exit-back {
+    transform-origin: center center;
+    animation: exitShrink 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+    pointer-events: none;
+}
+
+/* Hardware Acceleration */
+.glass-card,
+.student-card,
+.btn,
+.header {
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+}
+
+/* Card Stagger */
+@keyframes fadeInUpStagger {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.glass-card,
+.student-card {
+    opacity: 0;
+    animation: fadeInUpStagger 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.glass-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.glass-card:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.glass-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.glass-card:nth-child(4) {
+    animation-delay: 0.25s;
+}
+
+.glass-card:nth-child(5) {
+    animation-delay: 0.3s;
+}
+
+.glass-card:nth-child(6) {
+    animation-delay: 0.35s;
+}
+
+.glass-card:nth-child(7) {
+    animation-delay: 0.4s;
+}
+
+.glass-card:nth-child(8) {
+    animation-delay: 0.45s;
+}
+
+.glass-card:nth-child(9) {
+    animation-delay: 0.5s;
+}
+
+.glass-card:nth-child(10) {
+    animation-delay: 0.55s;
+}

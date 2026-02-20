@@ -1,186 +1,136 @@
 /* =========================================
-   MOBILE STABILITY MODE (Auto-enabled)
+   MOBILE COSMIC EXPERIENCE
+   Optimization for Touch & Performance
    ========================================= */
+
 @media (max-width: 768px) {
 
-    /* 1. Disable Heavy Effects */
-    body,
-    body.light-mode {
-        background-attachment: scroll !important;
-        /* Fix parallax lag */
-        background-image: none !important;
-        background-color: var(--background-light) !important;
-    }
-
-    /* Force proper background color for modes */
+    /* 1. Performance Optimizations */
     body {
-        background-color: #0f1015 !important;
+        /* Use a simpler background on mobile if needed, but try to keep the mesh */
+        background-attachment: scroll;
     }
 
-    body.light-mode {
-        background-color: #f8fafc !important;
-    }
-
-    .blob-container,
-    .liquid-bg,
-    .menu-glow,
-    .glass-card::before,
-    .nav-link::before {
-        display: none !important;
-        /* Kill all expensive render layers */
-    }
-
-    /* 2. Simplified Layout */
-    .container {
-        padding: 0 1rem;
-        width: 100%;
-    }
-
-    /* 3. Mobile Header & Navigation */
-    .header {
-        position: sticky;
-        top: 0;
-        width: 100%;
-        max-width: 100%;
-        border-radius: 0;
-        transform: none;
-        left: 0;
-        background: rgba(15, 15, 20, 0.98);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 0.5rem 0;
-        height: 60px;
-        min-height: 60px;
-    }
-
-    body.light-mode .header {
-        background: rgba(255, 255, 255, 0.98);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    }
-
-    .logo {
-        font-size: 1.2rem;
-    }
-
-    .logo i {
-        font-size: 1.4rem;
-    }
-
-    /* Hide Desktop Nav */
-    .nav-links {
-        display: none;
-        /* We will use a mobile bottom bar or hamburger */
-    }
-
-    /* Mobile Toggle (Hamburger) */
-    .mobile-toggle {
-        display: block;
-        font-size: 1.2rem;
-    }
-
-    /* 4. Mobile Bottom Navigation (New Feature) */
-    .mobile-bottom-nav {
-        display: flex;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background: #111;
-        border-top: 1px solid #222;
-        padding: 10px 0;
-        justify-content: space-around;
-        z-index: 9999;
+    .glass-card {
+        /* Reduce blur for performance */
         backdrop-filter: blur(10px);
-    }
-
-    body.light-mode .mobile-bottom-nav {
-        background: #fff;
-        border-top: 1px solid #eee;
-    }
-
-    .mobile-nav-item {
-        color: #888;
-        text-align: center;
-        font-size: 0.7rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
-    }
-
-    .mobile-nav-item i {
-        font-size: 1.2rem;
-        margin-bottom: 2px;
-    }
-
-    .mobile-nav-item.active {
-        color: var(--accent-color);
-        font-weight: bold;
-    }
-
-    /* 5. Card Stability */
-    .glass-card,
-    .news-card,
-    .teacher-profile-card {
-        transform: none !important;
-        /* No 3D tilt */
-        animation: none !important;
-        /* No floating */
-        transition: none !important;
-        background: #18181b !important;
-        /* Solid background, no glass */
-        border: 1px solid #27272a !important;
-        box-shadow: none !important;
-        margin-bottom: 1rem;
-        backdrop-filter: none !important;
+        /* Slightly more opaque for readability */
+        background: rgba(15, 16, 32, 0.85);
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
     }
 
     body.light-mode .glass-card {
-        background: #ffffff !important;
-        border: 1px solid #e2e8f0 !important;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
-    body.light-mode .glass-card * {
-        color: #0f172a !important;
-        /* Force readable text */
+    /* 2. Header & Nav */
+    .header {
+        height: 60px;
+        background: rgba(5, 5, 16, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* Center Logo */
     }
 
-    .section-title h2 {
-        font-size: 2rem;
+    .navbar {
+        padding: 0 1rem;
+        width: 100%;
+        justify-content: center;
     }
 
-    /* 6. Fix Hero */
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    .nav-links,
+    .header-actions {
+        display: none;
+        /* Hide Desktop Nav */
+    }
+
+    /* 3. Hero Adjustments */
     .hero {
-        height: auto;
-        min-height: 400px;
-        padding-top: 80px;
-        background-attachment: scroll;
-        clip-path: none;
-        /* Remove slanted bottom for performance */
-    }
-
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-    }
-
-    /* 7. Footer Stability */
-    .footer {
-        padding-bottom: 80px;
-        /* Space for bottom nav */
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: 4rem;
         text-align: center;
     }
 
-    /* 8. Hide Action Buttons (Move to Settings/Menu) */
-    .header-actions {
-        display: none;
+    .hero h1 {
+        font-size: 2.8rem;
+        line-height: 1.2;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    /* 4. Grid Adjustments */
+    .features-grid,
+    .news-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1.5rem;
+    }
+
+    /* 5. Mobile Bottom Navigation (Cosmic Style) */
+    .ios-mobile-nav {
+        display: flex;
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 400px;
+        background: rgba(15, 16, 32, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border-radius: 30px;
+        padding: 10px 20px;
+        justify-content: space-between;
+        z-index: 9999;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    body.light-mode .ios-mobile-nav {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .ios-nav-item {
+        color: var(--text-muted);
+        font-size: 1.2rem;
+        padding: 10px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        display: grid;
+        place-items: center;
+    }
+
+    .ios-nav-item.active {
+        color: var(--neon-blue);
+        background: rgba(0, 242, 255, 0.1);
+        box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+    }
+
+    body.light-mode .ios-nav-item.active {
+        color: #2563ea;
+        background: rgba(37, 99, 235, 0.1);
+        box-shadow: none;
+    }
+
+    /* 6. Footer */
+    .footer {
+        padding-bottom: 100px;
+        /* Space for nav */
+        text-align: center;
     }
 }
